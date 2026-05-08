@@ -1,0 +1,15 @@
+# Gizli anahtarlar - ASLA GitHub'a yükleme!
+.streamlit/secrets.toml
+
+# Gereksiz test dosyaları
+test_*.py
+users.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Anaconda/venv
+*.egg-info/
+.env
