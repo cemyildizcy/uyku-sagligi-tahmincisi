@@ -1,169 +1,168 @@
-# 🌙 Sleep Health Predictor — AI-Powered Sleep Disorder Risk Analysis
+# 🌙 Uyku Sağlığı Tahmincisi — Yapay Zeka Destekli Uyku Bozukluğu Risk Analizi
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.x-FF4B4B?logo=streamlit)](https://streamlit.io)
-[![XGBoost](https://img.shields.io/badge/XGBoost-95%25%20Accuracy-green)](https://xgboost.readthedocs.io)
-[![Supabase](https://img.shields.io/badge/Database-Supabase-3FCF8E?logo=supabase)](https://supabase.com)
-[![Gemini AI](https://img.shields.io/badge/AI%20Coach-Google%20Gemini-4285F4?logo=google)](https://ai.google.dev)
+[![XGBoost](https://img.shields.io/badge/XGBoost-%2595.3%20Doğruluk-green)](https://xgboost.readthedocs.io)
+[![Supabase](https://img.shields.io/badge/Veritabanı-Supabase-3FCF8E?logo=supabase)](https://supabase.com)
+[![Gemini AI](https://img.shields.io/badge/Yapay%20Zeka-Google%20Gemini-4285F4?logo=google)](https://ai.google.dev)
 
-> An end-to-end machine learning web application that predicts sleep disorder risk from user health and lifestyle metrics. Built with a model competition pipeline, real-time AI coaching, and a cloud-backed user profile system.
-
----
-
-## 🎯 Project Overview
-
-This project was developed to demonstrate a complete **Data Science and MLOps pipeline** — from raw data analysis and model training to a production-ready, deployed web application.
-
-The application collects 13 key health and lifestyle metrics from the user and uses a trained **XGBoost classifier** (**95.3% cross-validated accuracy**) to assess their sleep disorder risk as `Healthy`, `Mild Risk`, or `High Risk`. After the prediction, a **Google Gemini 2.5** AI model generates a personalized, expert-level sleep coaching comment in real-time.
+> Ham veri analizinden canlı web uygulamasına kadar uçtan uca geliştirilmiş bir makine öğrenimi projesi. Kullanıcının girdiği 13 sağlık ve yaşam tarzı metriğini analiz ederek uyku bozukluğu riskini gerçek zamanlı olarak tahmin eder; ardından yapay zeka tabanlı kişiselleştirilmiş bir uyku koçluğu yorumu sunar.
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Canlı Demo
 
-> 🔗 **[sleep-health-predictor.streamlit.app](https://share.streamlit.io)** *(Deployment Link)*
+> 🔗 **[uykusagligim.streamlit.app](https://uykusagligim.streamlit.app/)** — Uygulamayı Aç
 
 ---
 
-## ✨ Key Features
+## 🎯 Proje Özeti
 
-| Feature | Description |
+Bu proje; **veri analizi, model geliştirme ve MLOps** süreçlerinin tamamını kapsayan tam bir Veri Bilimi iş akışını sergiler.
+
+100.000 satırlık bir veri seti üzerinde önce özellik önemi analizi yapılmış, veri sızması (data leakage) kaynaklı metrikler tespit edilerek elenmiş ve sonuç olarak en anlamlı 13 özellik ile XGBoost modeli eğitilmiştir. Model, 5-Katlı Çapraz Doğrulama ile **%95.3 doğruluk oranına** ulaşmıştır.
+
+Tahmin tamamlandıktan sonra **Google Gemini 2.5 Flash** yapay zekası, kullanıcının verilerine özel Türkçe bir uyku koçluğu metni oluşturur.
+
+---
+
+## ✨ Temel Özellikler
+
+| Özellik | Açıklama |
 |---|---|
-| **🤖 Model Competition** | Random Forest, Gradient Boosting & XGBoost trained and compared via 5-Fold CV |
-| **📊 Feature Selection** | Importance analysis run to remove 16 low-impact/leakage features from 29 total |
-| **🔒 Data Leakage Prevention** | Outcome proxies (`sleep_quality_score`) deliberately excluded from training |
-| **👤 User Authentication** | Secure Register/Login system with `bcrypt`-hashed passwords |
-| **☁️ Cloud Database** | User profiles persisted to Supabase PostgreSQL (survives server resets) |
-| **🧠 AI Sleep Coach** | Google Gemini 2.5 Flash generates personalized Turkish-language sleep advice |
-| **💾 Profile System** | Save & load personal metric profiles per authenticated account |
+| **🤖 Model Yarışması** | Random Forest, Gradient Boosting ve XGBoost; 5-Katlı Çapraz Doğrulama ile karşılaştırıldı |
+| **📊 Özellik Seçimi** | 29 özellik üzerinde önem analizi yapıldı; etkisiz 16 özellik elendi |
+| **🔒 Veri Sızması Önleme** | Sonucu "spoileylayan" metrikler (`sleep_quality_score` vb.) eğitimden kasıtlı olarak çıkarıldı |
+| **👤 Kullanıcı Kimlik Doğrulama** | `bcrypt` ile şifrelenmiş güvenli Kayıt Ol / Giriş Yap sistemi |
+| **☁️ Bulut Veritabanı** | Kullanıcı profilleri Supabase PostgreSQL'e kalıcı olarak kaydedilir |
+| **🧠 Yapay Zeka Uyku Koçu** | Google Gemini 2.5 Flash, kullanıcıya özel kişiselleştirilmiş Türkçe tavsiye üretir |
+| **💾 Profil Sistemi** | Her hesaba özel uyku metriği profilleri kaydedilebilir ve yüklenebilir |
 
 ---
 
-## 🛠️ Technical Stack
+## 🛠️ Teknoloji Yığını
 
-**Machine Learning & Data Science**
-- `scikit-learn` — Preprocessing, model evaluation (Cross-Validation, Label Encoding, Standard Scaling)
-- `XGBoost` — Primary classifier (winner of 3-model competition)
-- `pandas` / `numpy` — Data manipulation and analysis
-- `joblib` — Model artifact serialization
+**Makine Öğrenimi ve Veri Bilimi**
+- `scikit-learn` — Ön işleme, model değerlendirme (Label Encoding, StandardScaler, Cross-Validation)
+- `XGBoost` — Ana sınıflandırıcı (3 model yarışmasının galibi)
+- `pandas` / `numpy` — Veri manipülasyonu ve analiz
+- `joblib` — Model artifact serileştirme
 
-**Web Application & Infrastructure**
-- `Streamlit` — Interactive web UI
-- `Supabase` — Cloud PostgreSQL database (via REST API)
-- `Google Generative AI` — Gemini 2.5 Flash for personalized AI coaching
-- `bcrypt` — Secure password hashing
-- `Plotly` — Interactive data comparison charts
-
----
-
-## 📊 Model Development Pipeline
-
-```
-100,000-row Dataset
-        │
-        ▼
-Feature Analysis (29 features)
-        │
-        ▼
-Importance Ranking → Removed 16 low-impact features
-        │
-        ▼
-Leakage Detection → Removed outcome-proxies (e.g., sleep_quality_score)
-        │
-        ▼
-3-Model Competition (5-Fold Cross Validation)
-├── Random Forest:        93.6% CV Accuracy
-├── Gradient Boosting:    92.4% CV Accuracy
-└── XGBoost:         ✅  95.3% CV Accuracy  ← WINNER
-        │
-        ▼
-Final Model Trained on 80,000 rows → Tested on 20,000 rows
-Final Test Accuracy: 95.29%
-```
+**Web Uygulaması ve Altyapı**
+- `Streamlit` — İnteraktif web arayüzü
+- `Supabase` — Bulut PostgreSQL veritabanı (REST API üzerinden)
+- `Google Generative AI` — Gemini 2.5 Flash ile kişiselleştirilmiş yapay zeka koçluğu
+- `bcrypt` — Güvenli şifre hashleme
+- `Plotly` — İnteraktif veri karşılaştırma grafikleri
 
 ---
 
-## 📁 Project Structure
+## 📊 Model Geliştirme Süreci
 
 ```
-sleep-health-predictor/
+100.000 Satırlık Veri Seti
+        │
+        ▼
+Özellik Analizi (29 özellik)
+        │
+        ▼
+Önem Sıralaması → 16 düşük etkili özellik elendi
+        │
+        ▼
+Veri Sızması Tespiti → Sonuç proxy'leri çıkarıldı (sleep_quality_score vb.)
+        │
+        ▼
+3 Model Yarışması (5-Katlı Çapraz Doğrulama)
+├── Random Forest:        %93.6 CV Doğruluğu
+├── Gradient Boosting:    %92.4 CV Doğruluğu
+└── XGBoost:         ✅  %95.3 CV Doğruluğu  ← KAZANAN
+        │
+        ▼
+Final Model: 80.000 satırda eğitildi → 20.000 satırda test edildi
+Test Doğruluğu: %95.29
+```
+
+---
+
+## 📁 Proje Yapısı
+
+```
+uyku-sagligi-tahmincisi/
 │
-├── app.py                  # Streamlit UI — Auth, Forms, Prediction, AI Coach
-├── train_model.py          # ML pipeline — Training, CV, Artifact export
-├── requirements.txt        # Python dependencies
-├── .gitignore              # Protects API keys from being committed
+├── app.py                  # Streamlit Arayüzü — Auth, Formlar, Tahmin, Yapay Zeka Koçu
+├── train_model.py          # ML Hattı — Eğitim, CV, Artifact dışa aktarma
+├── requirements.txt        # Python bağımlılıkları
+├── .gitignore              # API anahtarlarını commit'ten korur
 │
-├── models/                 # Trained model artifacts (auto-generated)
+├── models/                 # Eğitilmiş model dosyaları (otomatik oluşturulur)
 │   ├── best_model.joblib
 │   ├── scaler.joblib
 │   ├── label_encoders.joblib
-│   ├── target_le.joblib
-│   ├── feature_defaults.joblib
-│   ├── expected_features.joblib
-│   └── feature_uniques.joblib
+│   └── ...
 │
 └── .streamlit/
-    └── secrets.toml        # API keys (NOT committed to GitHub)
+    └── secrets.toml        # API anahtarları (GitHub'a YÜKLENMEMELİ)
 ```
 
 ---
 
-## ⚙️ Local Setup
+## ⚙️ Yerel Kurulum
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/sleep-health-predictor.git
-cd sleep-health-predictor
+# 1. Repoyu klonla
+git clone https://github.com/cemyildizcy/uyku-sagligi-tahmincisi.git
+cd uyku-sagligi-tahmincisi
 
-# 2. Install dependencies
+# 2. Bağımlılıkları yükle
 pip install -r requirements.txt
 
-# 3. Train the model (requires sleep_health_dataset.csv in root)
+# 3. Modeli eğit (sleep_health_dataset.csv dosyası gerekli)
 python train_model.py
 
-# 4. Create secrets file
+# 4. Gizli anahtar dosyasını oluştur
 mkdir .streamlit
-# Add your keys to .streamlit/secrets.toml (see secrets format below)
+# .streamlit/secrets.toml içine aşağıdakileri ekle
 
-# 5. Run the app
+# 5. Uygulamayı başlat
 streamlit run app.py
 ```
 
-**`.streamlit/secrets.toml` format:**
+**`.streamlit/secrets.toml` formatı:**
 ```toml
-SUPABASE_URL = "https://YOUR_PROJECT.supabase.co"
-SUPABASE_KEY = "your_supabase_key"
-GEMINI_API_KEY = "your_gemini_key"
+SUPABASE_URL = "https://PROJE_ADRESI.supabase.co"
+SUPABASE_KEY = "supabase_anahtarin"
+GEMINI_API_KEY = "gemini_anahtarin"
 ```
 
 ---
 
-## 🔬 Key Design Decisions
+## 🔬 Önemli Tasarım Kararları
 
-1. **Preventing Data Leakage:** Features like `sleep_quality_score` and `cognitive_performance_score` were deliberately excluded. Despite being top-2 in importance rankings, they are outcome proxies — including them would give the model a "cheat sheet" and make it trivially easy but practically useless.
+1. **Veri Sızması Önleme:** `sleep_quality_score` ve `cognitive_performance_score` gibi özellikler önem sıralamasında ilk 2'de yer almasına rağmen kasıtlı olarak modelden çıkarıldı. Bu metrikler sonucun bir yansıması olduğundan, modele verildiğinde "kopya çekmesine" ve pratikte işe yaramaz hale gelmesine neden oluyor.
 
-2. **Feature Engineering:** After importance analysis, 16 features with <1% impact (room temperature, season, day type, etc.) were pruned. The final 13-feature set achieves the same 95.3% accuracy as the full 29-feature model.
+2. **Özellik Mühendisliği:** Önem analizi sonrası %1'in altında etkiye sahip 16 özellik (oda sıcaklığı, mevsim, gün tipi vb.) elendi. Kalan 13 özellikli model, 29 özellikli modelle aynı %95.3 doğruluğu elde etti.
 
-3. **Cloud-first Architecture:** Using Supabase instead of local JSON files ensures user data persists across server restarts on free-tier hosting — a critical production consideration.
+3. **Bulut Öncelikli Mimari:** Yerel JSON dosyaları yerine Supabase kullanmak, ücretsiz hosting ortamında sunucu yeniden başlatmalarında kullanıcı verilerinin korunmasını sağlıyor.
 
 ---
 
-## 📈 Results
+## 📈 Sonuçlar
 
-| Metric | Value |
+| Metrik | Değer |
 |---|---|
-| Training Dataset Size | 100,000 rows |
-| Features Used | 13 (selected from 29) |
-| CV Folds | 5-Fold Stratified |
-| Best Model | XGBoost |
-| Cross-Val Accuracy | **95.30%** |
-| Test Set Accuracy | **95.29%** |
+| Eğitim Veri Seti Boyutu | 100.000 satır |
+| Kullanılan Özellik Sayısı | 13 (29'dan seçildi) |
+| Çapraz Doğrulama | 5-Katlı |
+| En İyi Model | XGBoost |
+| Çapraz Doğrulama Doğruluğu | **%95.30** |
+| Test Seti Doğruluğu | **%95.29** |
 
 ---
 
-## 👤 Author
+## 👤 Geliştirici
 
-**Cem Yıldız**
-*Data Science & Machine Learning Portfolio Project*
+**Cem Yıldız**  
+*Veri Bilimi ve Makine Öğrenimi Portfolyo Projesi*
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://linkedin.com)
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-black?logo=github)](https://github.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Bağlan-blue?logo=linkedin)](https://linkedin.com)
+[![GitHub](https://img.shields.io/badge/GitHub-cemyildizcy-black?logo=github)](https://github.com/cemyildizcy)
