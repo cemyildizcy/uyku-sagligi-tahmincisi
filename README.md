@@ -199,5 +199,5 @@ Projenin internet üzerinden kesintisiz (7/24) erişilebilir olması için Front
 **Cem Yıldız**  
 *Veri Bilimi ve Makine Öğrenimi Portfolyo Projesi*
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Bağlan-blue?logo=linkedin)](https://linkedin.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Bağlan-blue?logo=linkedin)](https://linkedin.com/cemyildizcy)
 [![GitHub](https://img.shields.io/badge/GitHub-cemyildizcy-black?logo=github)](https://github.com/cemyildizcy)
