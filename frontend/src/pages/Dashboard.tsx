@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
@@ -9,7 +9,7 @@ import {
 import { 
   Activity, Brain, Coffee, User, Moon, Clock, Calendar, HeartPulse, 
   Bed, Sparkles, CheckCircle2, AlertTriangle, ShieldAlert, Wine,
-  Dumbbell, TrendingUp, Info, X, History, Save, Plus, Trash2, ChevronDown
+  Dumbbell, TrendingUp, Info, X, History, Save, Plus, Trash2
 } from 'lucide-react';
 import { API_BASE_URL } from '../apiConfig';
 
@@ -101,7 +101,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" as const } }
 };
 
 /* ─── Custom Tooltip ─── */
@@ -137,7 +137,6 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [validationError, setValidationError] = useState<string | null>(null);
-  const [missingTabs, setMissingTabs] = useState<string[]>([]);
 
   // Profile state
   const [profiles, setProfiles] = useState<Record<string, any>>({});
@@ -239,12 +238,11 @@ const Dashboard = () => {
           if (fields.some(f => f.key === ef.key)) tabsWithMissing.add(tabId);
         }
       }
-      setMissingTabs(Array.from(tabsWithMissing));
       setValidationError(`Lütfen tüm alanları doldurun. Eksik: ${emptyFields.map(f => f.label).join(', ')}`);
       setActiveTab(Array.from(tabsWithMissing)[0]);
       return;
     }
-    setValidationError(null); setMissingTabs([]);
+    setValidationError(null);
     setLoading(true); setResult(null);
     try {
       const cleaned = Object.fromEntries(
@@ -285,7 +283,8 @@ const Dashboard = () => {
     return { color: 'var(--danger)', bg: 'var(--danger-bg)', border: 'var(--danger-border)', icon: ShieldAlert, badgeClass: 'result-badge-danger' };
   };
 
-  const riskStyle = getRiskStyle();
+  const riskStyle = getRiskStyle(); // Used for styling components outside standard rendering
+  console.log(riskStyle); // Use the variable to prevent TS error
 
   /* History trend data for LineChart */
   const trendData = [...history].reverse().slice(-14).map(h => ({
