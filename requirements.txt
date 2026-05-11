@@ -8,3 +8,8 @@ bcrypt
 joblib
 supabase
 google-generativeai
+fastapi
+uvicorn
+python-dotenv
+python-multipart
+pydantic
