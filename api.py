@@ -33,7 +33,7 @@ try:
 
     gemini_key = os.environ.get("GEMINI_API_KEY")
     genai.configure(api_key=gemini_key)
-    model_ai = genai.GenerativeModel('gemini-2.5-flash')
+    model_ai = genai.GenerativeModel('gemini-1.5-flash')
 except Exception as e:
     print(f"Error setting up clients: {e}")
 
@@ -288,10 +288,13 @@ def predict(request: PredictionRequest):
         Maddeler kullanabilirsin. Sonucu çok uzun tutma.
         """
         response = model_ai.generate_content(prompt)
-        ai_feedback = response.text
+        try:
+            ai_feedback = response.text
+        except ValueError:
+            ai_feedback = "Yapay zeka analizimizi üretti, ancak Google güvenlik politikalarına takıldığı için metni gösteremiyoruz."
     except Exception as e:
         print(f"AI Error: {e}")
-        ai_feedback = "Yapay zeka ile iletişim kurulamadı, ancak yukarıdaki analiz sonuçlarınızı kullanabilirsiniz."
+        ai_feedback = f"Yapay zeka ile iletişim kurulamadı. Lütfen API anahtarınızı veya model sürümünü kontrol edin. (Hata: {str(e)[:50]})"
 
     # Return structured data
     max_prob = float(max(pred_proba))
