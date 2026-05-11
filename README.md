@@ -151,26 +151,36 @@ Ardından tarayıcınızdan `http://localhost:5173` adresine giderek uygulamayı
 
 ## 🚀 Yayına Alma (Deployment)
 
-Projenin internet üzerinden kesintisiz (7/24) erişilebilir olması için Frontend'i **Vercel**'de, Backend'i ise uykuya dalmayan **Koyeb**'de yayınlayabilirsiniz.
+Projenin internet üzerinden kesintisiz (7/24) erişilebilir olması için Frontend'i **Vercel**'de, Backend'i ise **Render**'da yayınlayacağız. Render'ın uyku modunu engellemek için ise **UptimeRobot** kullanacağız.
 
-### 1. Backend'i Yayına Alma (Koyeb.com - Uyku Modu Yoktur)
-1. [Koyeb.com](https://app.koyeb.com/)'a gidin ve GitHub ile giriş yapıp yeni bir **Web Service** oluşturun.
+### 1. Backend'i Yayına Alma (Render.com)
+1. [Render.com](https://render.com)'da yeni bir **Web Service** oluşturun.
 2. Bu GitHub deponuzu seçin.
 3. Ayarlar:
-   - **Run Command:** `uvicorn api:app --host 0.0.0.0 --port 8000`
-   - **Port:** `8000`
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Start Command:** `uvicorn api:app --host 0.0.0.0 --port $PORT`
 4. **Environment Variables** bölümüne `.env` dosyanızdaki `SUPABASE_URL`, `SUPABASE_KEY` ve `GEMINI_API_KEY` değerlerini girin.
-5. Deploy edin ve Koyeb'in size verdiği URL'yi kopyalayın (örn: `https://uyku-api-koyeb.app`).
+5. Deploy edin ve Render'ın size verdiği URL'yi kopyalayın (örn: `https://sleepinfo-api.onrender.com`).
 
-### 2. Frontend'i Yayına Alma (Vercel.com)
+### 2. Uyku Modunu İptal Etme (UptimeRobot)
+1. [UptimeRobot.com](https://uptimerobot.com/)'da ücretsiz hesap açın.
+2. **Add New Monitor** butonuna basın.
+3. Ayarlar:
+   - **Monitor Type:** `HTTP(s)`
+   - **Friendly Name:** `SleepInfo Uyandırıcı`
+   - **URL (or IP):** Render'dan kopyaladığınız API linkini yapıştırın.
+   - **Monitoring Interval:** `5 minutes`
+4. Create Monitor deyin. Artık uygulamanız 7/24 uyanık!
+
+### 3. Frontend'i Yayına Alma (Vercel.com)
 1. [Vercel.com](https://vercel.com)'da **Add New > Project** diyerek bu deponuzu seçin.
 2. Ayarlar:
    - **Root Directory:** `frontend` olarak seçin.
    - **Framework Preset:** `Vite`
 3. **Environment Variables** bölümüne şu değeri ekleyin:
    - **Name:** `VITE_API_URL`
-   - **Value:** `https://uyku-api-koyeb.app` (Koyeb'den aldığınız link)
-4. Deploy butonuna tıklayın. Vercel size canlı ve çalışan bir web adresi verecektir.
+   - **Value:** `https://sleepinfo-api.onrender.com` (Render'dan aldığınız link)
+4. Deploy butonuna tıklayın. Özel domaininizi (alan adınızı) Vercel panelindeki **Settings > Domains** kısmından ücretsiz olarak bağlayabilirsiniz.
 
 ---
 
