@@ -669,7 +669,7 @@ const Dashboard = () => {
                       <Sparkles size={24} color="white" />
                     </div>
                     <div className="ai-header-text">
-                      <h3>Gemini Uyku Koçu</h3>
+                      <h3>SleepInfo AI Koçu</h3>
                       <p>Yapay zeka destekli kişisel değerlendirme</p>
                     </div>
                   </div>
