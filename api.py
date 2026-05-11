@@ -108,6 +108,11 @@ def save_analysis_log(email: str, profile_name: str, inputs: dict, risk_label: s
 
 # --- Endpoints ---
 
+@app.get("/")
+def health_check():
+    """Uptime robotları için uyku engelleyici endpoint"""
+    return {"status": "awake", "message": "SleepInfo API is running."}
+
 @app.post("/api/auth/register")
 def register(user: UserAuth):
     existing_user = get_user(user.email)
