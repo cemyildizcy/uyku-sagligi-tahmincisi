@@ -57,7 +57,7 @@ const Register = () => {
               <UserPlus size={32} color="white" />
             </div>
             <h1 className="heading-section">Hesap Oluşturun</h1>
-            <p className="text-body" style={{ marginTop: '0.5rem' }}>Uyku sağlığınızı AI ile analiz edin</p>
+            <p className="text-body" style={{ marginTop: '0.5rem' }}>SleepInfo ile uyku sağlığınızı AI'ye analiz ettirin</p>
           </div>
 
           {error && <div className="error-banner">{error}</div>}

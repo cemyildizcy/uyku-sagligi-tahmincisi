@@ -306,7 +306,7 @@ const Dashboard = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="heading-hero">Uyku Sağlığı Analizi</h1>
+        <h1 className="heading-hero">SleepInfo Analizi</h1>
         <p className="text-body" style={{ maxWidth: '500px', margin: '0.75rem auto 0' }}>
           Yapay zeka destekli modelimiz verilerinizi analiz ederek kişiselleştirilmiş uyku tavsiyeleri sunar.
         </p>

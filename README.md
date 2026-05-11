@@ -1,4 +1,4 @@
-# 🌙 Uyku Sağlığı Tahmincisi — Yapay Zeka Destekli Uyku Bozukluğu Risk Analizi
+# 🌙 SleepInfo — Yapay Zeka Destekli Uyku Sağlığı Analizi
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?logo=fastapi)](https://fastapi.tiangolo.com)
@@ -178,7 +178,7 @@ Projenin internet üzerinden kesintisiz (7/24) erişilebilir olması için Front
 
 1. **Veri Sızması Önleme:** `sleep_quality_score` ve `cognitive_performance_score` gibi özellikler önem sıralamasında ilk 2'de yer almasına rağmen kasıtlı olarak modelden çıkarıldı. Bu metrikler sonucun bir yansıması olduğundan, modele verildiğinde "kopya çekmesine" ve pratikte işe yaramaz hale gelmesine neden oluyor.
 2. **Özellik Mühendisliği:** Önem analizi sonrası %1'in altında etkiye sahip 16 özellik (oda sıcaklığı, mevsim, gün tipi vb.) elendi. Kalan 13 özellikli model, 29 özellikli modelle aynı %95.3 doğruluğu elde etti.
-3. **Mimarinin Evrimi:** Başlangıçta Streamlit üzerinde çalışan basit bir script olan bu proje, React/Vite arayüzü ve API mimarisi ile baştan yazılarak bulut tabanlı modern bir web uygulamasına dönüştürülmüştür.
+3. **Mimarinin Evrimi:** Başlangıçta Streamlit üzerinde çalışan basit bir script olan bu proje (eski adıyla Uyku Sağlığı Tahmincisi), React/Vite arayüzü ve API mimarisi ile baştan yazılarak **SleepInfo** adıyla bulut tabanlı modern bir web uygulamasına dönüştürülmüştür.
 
 ---
 

@@ -48,7 +48,7 @@ const Login = () => {
               <Moon size={32} color="white" />
             </div>
             <h1 className="heading-section">Tekrar Hoş Geldiniz</h1>
-            <p className="text-body" style={{ marginTop: '0.5rem' }}>Uyku sağlığınızı takip etmeye devam edin</p>
+            <p className="text-body" style={{ marginTop: '0.5rem' }}>SleepInfo ile uyku sağlığınızı takip edin</p>
           </div>
 
           {error && <div className="error-banner">{error}</div>}
