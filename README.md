@@ -9,6 +9,8 @@
 
 > Ham veri analizinden canlı web uygulamasına kadar uçtan uca geliştirilmiş bir makine öğrenimi projesi. Kullanıcının girdiği 13 sağlık ve yaşam tarzı metriğini analiz ederek uyku bozukluğu riskini gerçek zamanlı olarak tahmin eder; ardından yapay zeka tabanlı kişiselleştirilmiş bir uyku koçluğu yorumu sunar.
 
+🌟 **Canlı Demo:** [www.sleepinfo.com.tr](https://www.sleepinfo.com.tr)
+
 ---
 
 ## 🎯 Proje Özeti
@@ -180,7 +182,7 @@ Projenin internet üzerinden kesintisiz (7/24) erişilebilir olması için Front
 3. **Environment Variables** bölümüne şu değeri ekleyin:
    - **Name:** `VITE_API_URL`
    - **Value:** `https://sleepinfo-api.onrender.com` (Render'dan aldığınız link)
-4. Deploy butonuna tıklayın. Özel domaininizi (alan adınızı) Vercel panelindeki **Settings > Domains** kısmından ücretsiz olarak bağlayabilirsiniz.
+4. Deploy butonuna tıklayın. Özel domaininizi (örn: `sleepinfo.com.tr`) Vercel panelindeki **Settings > Domains** kısmından ekleyip yönlendirerek projenizi tam profesyonel sürüme taşıyabilirsiniz.
 
 ---
 
