@@ -33,7 +33,7 @@ try:
 
     gemini_key = os.environ.get("GEMINI_API_KEY")
     genai.configure(api_key=gemini_key)
-    model_ai = genai.GenerativeModel('gemini-1.5-flash')
+    model_ai = genai.GenerativeModel('gemini-2.5-flash')
 except Exception as e:
     print(f"Error setting up clients: {e}")
 
